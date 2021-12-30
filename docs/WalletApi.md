@@ -36,8 +36,8 @@ let apiInstance = new DeBankOpenApi.WalletApi();
 let userAddr = "userAddr_example"; // String | User Address
 let origin = "origin_example"; // String | DApp WebHost
 
-apiInstance.getCheckOrigin(userAddr, origin).then(() => {
-  console.log('API called successfully.');
+apiInstance.getCheckOrigin(userAddr, origin).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -79,8 +79,8 @@ const DeBankOpenApi = require('debank-open-api');
 let apiInstance = new DeBankOpenApi.WalletApi();
 let text = "text_example"; // String | text
 
-apiInstance.getEns(text).then(() => {
-  console.log('API called successfully.');
+apiInstance.getEns(text).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -122,8 +122,8 @@ let apiInstance = new DeBankOpenApi.WalletApi();
 let userAddr = "userAddr_example"; // String | User Address
 let origin = "origin_example"; // String | DApp WebHost
 
-apiInstance.getExplainOrigin(userAddr, origin).then(() => {
-  console.log('API called successfully.');
+apiInstance.getExplainOrigin(userAddr, origin).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -167,8 +167,8 @@ let chainId = "chainId_example"; // String | ChainId
 let txId = "txId_example"; // String | tx hash id
 let gasPrice = "gasPrice_example"; // String | gasPrice
 
-apiInstance.getExplainTx(chainId, txId, gasPrice).then(() => {
-  console.log('API called successfully.');
+apiInstance.getExplainTx(chainId, txId, gasPrice).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -213,8 +213,8 @@ let chainId = "chainId_example"; // String | ChainId
 let opts = { 
   'customPrice': "0" // String | CustomPrice
 };
-apiInstance.getGasMarket(chainId, opts).then(() => {
-  console.log('API called successfully.');
+apiInstance.getGasMarket(chainId, opts).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -256,8 +256,8 @@ const DeBankOpenApi = require('debank-open-api');
 let apiInstance = new DeBankOpenApi.WalletApi();
 let userAddr = "userAddr_example"; // String | User Address
 
-apiInstance.getPendingTxCount(userAddr).then(() => {
-  console.log('API called successfully.');
+apiInstance.getPendingTxCount(userAddr).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -299,8 +299,8 @@ let apiInstance = new DeBankOpenApi.WalletApi();
 let userAddr = "userAddr_example"; // String | User Address
 let origin = "origin_example"; // String | DApp WebHost
 
-apiInstance.getRecommendChains(userAddr, origin).then(() => {
-  console.log('API called successfully.');
+apiInstance.getRecommendChains(userAddr, origin).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -340,8 +340,8 @@ wallet support chain
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.getSupportChains().then(() => {
-  console.log('API called successfully.');
+apiInstance.getSupportChains().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -377,8 +377,8 @@ wallet api config
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.getUrlConfig().then(() => {
-  console.log('API called successfully.');
+apiInstance.getUrlConfig().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -414,8 +414,8 @@ check text
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.postCheckText().then(() => {
-  console.log('API called successfully.');
+apiInstance.postCheckText().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -451,8 +451,8 @@ check tx
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.postCheckTx().then(() => {
-  console.log('API called successfully.');
+apiInstance.postCheckTx().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -488,8 +488,8 @@ eth rpc
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.postEthCall().then(() => {
-  console.log('API called successfully.');
+apiInstance.postEthCall().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -525,8 +525,8 @@ explain text
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.postExplainText().then(() => {
-  console.log('API called successfully.');
+apiInstance.postExplainText().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -562,8 +562,8 @@ explain tx
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.postExplainTx().then(() => {
-  console.log('API called successfully.');
+apiInstance.postExplainTx().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -599,8 +599,8 @@ push tx
 const DeBankOpenApi = require('debank-open-api');
 
 let apiInstance = new DeBankOpenApi.WalletApi();
-apiInstance.postPushTx().then(() => {
-  console.log('API called successfully.');
+apiInstance.postPushTx().then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });

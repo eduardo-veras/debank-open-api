@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**getUserTokenList**](UserApi.md#getUserTokenList) | **GET** /v1/user/token_list | 
 [**getUserTokenSearch**](UserApi.md#getUserTokenSearch) | **GET** /v1/user/token_search | 
 [**getUserTotalBalance**](UserApi.md#getUserTotalBalance) | **GET** /v1/user/chain_balance | 
-[**getUserTotalBalance_0**](UserApi.md#getUserTotalBalance_0) | **GET** /v1/user/total_balance | 
+[**getUserTotalBalance_1**](UserApi.md#getUserTotalBalance_1) | **GET** /v1/user/total_balance | 
 
 <a name="getUserComplexProtocolList"></a>
 # **getUserComplexProtocolList**
@@ -32,8 +32,8 @@ let id = "id_example"; // String | User Address
 let opts = { 
   'chainId': "chainId_example" // String | ChainID
 };
-apiInstance.getUserComplexProtocolList(id, opts).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserComplexProtocolList(id, opts).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -76,8 +76,8 @@ let apiInstance = new DeBankOpenApi.UserApi();
 let id = "id_example"; // String | Address
 let chainId = "chainId_example"; // String | ChainID
 
-apiInstance.getUserNftList(id, chainId).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserNftList(id, chainId).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -120,8 +120,8 @@ let apiInstance = new DeBankOpenApi.UserApi();
 let id = "id_example"; // String | User Address
 let protocolId = "protocolId_example"; // String | protocol id
 
-apiInstance.getUserProtocol(id, protocolId).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserProtocol(id, protocolId).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -165,8 +165,8 @@ let id = "id_example"; // String | User Address
 let opts = { 
   'chainId': "chainId_example" // String | ChainID
 };
-apiInstance.getUserSimpleProtocolList(id, opts).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserSimpleProtocolList(id, opts).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -211,8 +211,8 @@ let tokenId = "tokenId_example"; // String | token id
 let opts = { 
   'chainId': "chainId_example" // String | ChainID
 };
-apiInstance.getUserToken(id, tokenId, opts).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserToken(id, tokenId, opts).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -256,8 +256,8 @@ let apiInstance = new DeBankOpenApi.UserApi();
 let id = "id_example"; // String | User Address
 let chainId = "chainId_example"; // String | ChainID
 
-apiInstance.getUserTokenAuthorizedList(id, chainId).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserTokenAuthorizedList(id, chainId).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -303,8 +303,8 @@ let opts = {
   'isAll': true, // Boolean | If true, all tokens are returned, including protocol-derived tokens
   'hasBalance': true // Boolean | If true, only token with balance will returned
 };
-apiInstance.getUserTokenList(id, opts).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserTokenList(id, opts).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -352,8 +352,8 @@ let opts = {
   'chainId': "chainId_example", // String | ChainID
   'hasBalance': true // Boolean | If true, only token with balance will returned
 };
-apiInstance.getUserTokenSearch(id, q, opts).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserTokenSearch(id, q, opts).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -398,8 +398,8 @@ let apiInstance = new DeBankOpenApi.UserApi();
 let id = "id_example"; // String | User Address
 let chainId = "chainId_example"; // String | ChainID
 
-apiInstance.getUserTotalBalance(id, chainId).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserTotalBalance(id, chainId).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
@@ -426,9 +426,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="getUserTotalBalance_0"></a>
-# **getUserTotalBalance_0**
-> getUserTotalBalance_0(id)
+<a name="getUserTotalBalance_1"></a>
+# **getUserTotalBalance_1**
+> getUserTotalBalance_1(id)
 
 
 
@@ -441,8 +441,8 @@ const DeBankOpenApi = require('debank-open-api');
 let apiInstance = new DeBankOpenApi.UserApi();
 let id = "id_example"; // String | User Address
 
-apiInstance.getUserTotalBalance_0(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.getUserTotalBalance_1(id).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });

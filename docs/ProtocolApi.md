@@ -96,8 +96,8 @@ const DeBankOpenApi = require('debank-open-api');
 let apiInstance = new DeBankOpenApi.ProtocolApi();
 let id = "id_example"; // String | protocol id
 
-apiInstance.getTvl(id).then(() => {
-  console.log('API called successfully.');
+apiInstance.getTvl(id).then((response) => {
+  console.log(response);
 }, (error) => {
   console.error(error);
 });
