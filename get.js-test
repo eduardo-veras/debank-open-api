@@ -1,8 +1,0 @@
-var DeBankOpenApi = require('./build/index');
-
-var api = new DeBankOpenApi.ChainApi();
-api.getChainList().then(function(data) {
-  console.log(data);
-}, function(error) {
-  console.error(error);
-});
