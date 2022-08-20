@@ -34,7 +34,7 @@ const base_1 = require("../base");
  * ChainApi - axios parameter creator
  * @export
  */
-exports.ChainApiAxiosParamCreator = function (configuration) {
+const ChainApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get supported chain list
@@ -108,11 +108,12 @@ exports.ChainApiAxiosParamCreator = function (configuration) {
         }),
     };
 };
+exports.ChainApiAxiosParamCreator = ChainApiAxiosParamCreator;
 /**
  * ChainApi - functional programming interface
  * @export
  */
-exports.ChainApiFp = function (configuration) {
+const ChainApiFp = function (configuration) {
     return {
         /**
          * Get supported chain list
@@ -121,7 +122,7 @@ exports.ChainApiFp = function (configuration) {
          */
         getChainList(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ChainApiAxiosParamCreator(configuration).getChainList(options);
+                const localVarAxiosArgs = yield (0, exports.ChainApiAxiosParamCreator)(configuration).getChainList(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -136,7 +137,7 @@ exports.ChainApiFp = function (configuration) {
          */
         getChainR(id, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ChainApiAxiosParamCreator(configuration).getChainR(id, options);
+                const localVarAxiosArgs = yield (0, exports.ChainApiAxiosParamCreator)(configuration).getChainR(id, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -145,11 +146,12 @@ exports.ChainApiFp = function (configuration) {
         },
     };
 };
+exports.ChainApiFp = ChainApiFp;
 /**
  * ChainApi - factory interface
  * @export
  */
-exports.ChainApiFactory = function (configuration, basePath, axios) {
+const ChainApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Get supported chain list
@@ -157,7 +159,7 @@ exports.ChainApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getChainList(options) {
-            return exports.ChainApiFp(configuration).getChainList(options).then((request) => request(axios, basePath));
+            return (0, exports.ChainApiFp)(configuration).getChainList(options).then((request) => request(axios, basePath));
         },
         /**
          * Get chain info by id
@@ -166,10 +168,11 @@ exports.ChainApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getChainR(id, options) {
-            return exports.ChainApiFp(configuration).getChainR(id, options).then((request) => request(axios, basePath));
+            return (0, exports.ChainApiFp)(configuration).getChainR(id, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.ChainApiFactory = ChainApiFactory;
 /**
  * ChainApi - object-oriented interface
  * @export
@@ -184,7 +187,7 @@ class ChainApi extends base_1.BaseAPI {
      * @memberof ChainApi
      */
     getChainList(options) {
-        return exports.ChainApiFp(this.configuration).getChainList(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.ChainApiFp)(this.configuration).getChainList(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get chain info by id
@@ -194,7 +197,7 @@ class ChainApi extends base_1.BaseAPI {
      * @memberof ChainApi
      */
     getChainR(id, options) {
-        return exports.ChainApiFp(this.configuration).getChainR(id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.ChainApiFp)(this.configuration).getChainR(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ChainApi = ChainApi;

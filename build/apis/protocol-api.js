@@ -34,7 +34,7 @@ const base_1 = require("../base");
  * ProtocolApi - axios parameter creator
  * @export
  */
-exports.ProtocolApiAxiosParamCreator = function (configuration) {
+const ProtocolApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
@@ -147,11 +147,12 @@ exports.ProtocolApiAxiosParamCreator = function (configuration) {
         }),
     };
 };
+exports.ProtocolApiAxiosParamCreator = ProtocolApiAxiosParamCreator;
 /**
  * ProtocolApi - functional programming interface
  * @export
  */
-exports.ProtocolApiFp = function (configuration) {
+const ProtocolApiFp = function (configuration) {
     return {
         /**
          *
@@ -160,7 +161,7 @@ exports.ProtocolApiFp = function (configuration) {
          */
         getProtocolListR(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ProtocolApiAxiosParamCreator(configuration).getProtocolListR(options);
+                const localVarAxiosArgs = yield (0, exports.ProtocolApiAxiosParamCreator)(configuration).getProtocolListR(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -175,7 +176,7 @@ exports.ProtocolApiFp = function (configuration) {
          */
         getProtocolR(id, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ProtocolApiAxiosParamCreator(configuration).getProtocolR(id, options);
+                const localVarAxiosArgs = yield (0, exports.ProtocolApiAxiosParamCreator)(configuration).getProtocolR(id, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -190,7 +191,7 @@ exports.ProtocolApiFp = function (configuration) {
          */
         getTvl(id, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ProtocolApiAxiosParamCreator(configuration).getTvl(id, options);
+                const localVarAxiosArgs = yield (0, exports.ProtocolApiAxiosParamCreator)(configuration).getTvl(id, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -199,11 +200,12 @@ exports.ProtocolApiFp = function (configuration) {
         },
     };
 };
+exports.ProtocolApiFp = ProtocolApiFp;
 /**
  * ProtocolApi - factory interface
  * @export
  */
-exports.ProtocolApiFactory = function (configuration, basePath, axios) {
+const ProtocolApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          *
@@ -211,7 +213,7 @@ exports.ProtocolApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getProtocolListR(options) {
-            return exports.ProtocolApiFp(configuration).getProtocolListR(options).then((request) => request(axios, basePath));
+            return (0, exports.ProtocolApiFp)(configuration).getProtocolListR(options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -220,7 +222,7 @@ exports.ProtocolApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getProtocolR(id, options) {
-            return exports.ProtocolApiFp(configuration).getProtocolR(id, options).then((request) => request(axios, basePath));
+            return (0, exports.ProtocolApiFp)(configuration).getProtocolR(id, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -229,10 +231,11 @@ exports.ProtocolApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getTvl(id, options) {
-            return exports.ProtocolApiFp(configuration).getTvl(id, options).then((request) => request(axios, basePath));
+            return (0, exports.ProtocolApiFp)(configuration).getTvl(id, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.ProtocolApiFactory = ProtocolApiFactory;
 /**
  * ProtocolApi - object-oriented interface
  * @export
@@ -247,7 +250,7 @@ class ProtocolApi extends base_1.BaseAPI {
      * @memberof ProtocolApi
      */
     getProtocolListR(options) {
-        return exports.ProtocolApiFp(this.configuration).getProtocolListR(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.ProtocolApiFp)(this.configuration).getProtocolListR(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -257,7 +260,7 @@ class ProtocolApi extends base_1.BaseAPI {
      * @memberof ProtocolApi
      */
     getProtocolR(id, options) {
-        return exports.ProtocolApiFp(this.configuration).getProtocolR(id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.ProtocolApiFp)(this.configuration).getProtocolR(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -267,7 +270,7 @@ class ProtocolApi extends base_1.BaseAPI {
      * @memberof ProtocolApi
      */
     getTvl(id, options) {
-        return exports.ProtocolApiFp(this.configuration).getTvl(id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.ProtocolApiFp)(this.configuration).getTvl(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ProtocolApi = ProtocolApi;

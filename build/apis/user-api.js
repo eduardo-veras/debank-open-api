@@ -34,7 +34,7 @@ const base_1 = require("../base");
  * UserApi - axios parameter creator
  * @export
  */
-exports.UserApiAxiosParamCreator = function (configuration) {
+const UserApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get list of protocols with user portfolio details
@@ -121,6 +121,42 @@ exports.UserApiAxiosParamCreator = function (configuration) {
             localVarUrlObj.search = (new URLSearchParams(query)).toString();
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get user nft list on all supported chains
+         * @param {string} id Address
+         * @param {boolean} isall boolean
+         * @throws {RequiredError}
+         */
+        getUserAllNftList: (id, is_all) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'id' is not null or undefined
+            if (id === null || id === undefined) {
+                throw new base_1.RequiredError('id', 'Required parameter id was null or undefined when calling getUserNftList.');
+            }
+            const localVarPath = `/v1/user/all_nft_list`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign({ method: 'GET' }, baseOptions);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions);
             return {
                 url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
                 options: localVarRequestOptions,
@@ -508,11 +544,12 @@ exports.UserApiAxiosParamCreator = function (configuration) {
         }),
     };
 };
+exports.UserApiAxiosParamCreator = UserApiAxiosParamCreator;
 /**
  * UserApi - functional programming interface
  * @export
  */
-exports.UserApiFp = function (configuration) {
+const UserApiFp = function (configuration) {
     return {
         /**
          * Get list of protocols with user portfolio details
@@ -523,7 +560,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserComplexProtocolList(id, chainId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserComplexProtocolList(id, chainId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserComplexProtocolList(id, chainId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -539,7 +576,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserNftList(id, chainId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserNftList(id, chainId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserNftList(id, chainId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -555,7 +592,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserProtocol(id, protocolId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserProtocol(id, protocolId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserProtocol(id, protocolId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -571,7 +608,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserSimpleProtocolList(id, chainId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserSimpleProtocolList(id, chainId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserSimpleProtocolList(id, chainId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -588,7 +625,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserToken(id, tokenId, chainId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserToken(id, tokenId, chainId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserToken(id, tokenId, chainId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -604,7 +641,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserTokenAuthorizedList(id, chainId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserTokenAuthorizedList(id, chainId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserTokenAuthorizedList(id, chainId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -622,7 +659,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserTokenList(id, chainId, isAll, hasBalance, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserTokenList(id, chainId, isAll, hasBalance, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserTokenList(id, chainId, isAll, hasBalance, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -640,7 +677,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserTokenSearch(id, q, chainId, hasBalance, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserTokenSearch(id, q, chainId, hasBalance, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserTokenSearch(id, q, chainId, hasBalance, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -656,7 +693,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserTotalBalance(id, chainId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserTotalBalance(id, chainId, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserTotalBalance(id, chainId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -671,7 +708,7 @@ exports.UserApiFp = function (configuration) {
          */
         getUserTotalBalance_1(id, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UserApiAxiosParamCreator(configuration).getUserTotalBalance_1(id, options);
+                const localVarAxiosArgs = yield (0, exports.UserApiAxiosParamCreator)(configuration).getUserTotalBalance_1(id, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -680,11 +717,12 @@ exports.UserApiFp = function (configuration) {
         },
     };
 };
+exports.UserApiFp = UserApiFp;
 /**
  * UserApi - factory interface
  * @export
  */
-exports.UserApiFactory = function (configuration, basePath, axios) {
+const UserApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Get list of protocols with user portfolio details
@@ -694,7 +732,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserComplexProtocolList(id, chainId, options) {
-            return exports.UserApiFp(configuration).getUserComplexProtocolList(id, chainId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserComplexProtocolList(id, chainId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get user nft list
@@ -704,7 +742,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserNftList(id, chainId, options) {
-            return exports.UserApiFp(configuration).getUserNftList(id, chainId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserNftList(id, chainId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the user's portfolio in the protocol
@@ -714,7 +752,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserProtocol(id, protocolId, options) {
-            return exports.UserApiFp(configuration).getUserProtocol(id, protocolId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserProtocol(id, protocolId, options).then((request) => request(axios, basePath));
         },
         /**
          * Stats the user's protocol assets on a chain
@@ -724,7 +762,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserSimpleProtocolList(id, chainId, options) {
-            return exports.UserApiFp(configuration).getUserSimpleProtocolList(id, chainId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserSimpleProtocolList(id, chainId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get user token balance
@@ -735,7 +773,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserToken(id, tokenId, chainId, options) {
-            return exports.UserApiFp(configuration).getUserToken(id, tokenId, chainId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserToken(id, tokenId, chainId, options).then((request) => request(axios, basePath));
         },
         /**
          * Show the user's risk exposure of approved token on a chain
@@ -745,7 +783,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserTokenAuthorizedList(id, chainId, options) {
-            return exports.UserApiFp(configuration).getUserTokenAuthorizedList(id, chainId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserTokenAuthorizedList(id, chainId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get user token balance
@@ -757,7 +795,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserTokenList(id, chainId, isAll, hasBalance, options) {
-            return exports.UserApiFp(configuration).getUserTokenList(id, chainId, isAll, hasBalance, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserTokenList(id, chainId, isAll, hasBalance, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Tokens By Filter
@@ -769,7 +807,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserTokenSearch(id, q, chainId, hasBalance, options) {
-            return exports.UserApiFp(configuration).getUserTokenSearch(id, q, chainId, hasBalance, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserTokenSearch(id, q, chainId, hasBalance, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the net assets of a chain
@@ -779,7 +817,7 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserTotalBalance(id, chainId, options) {
-            return exports.UserApiFp(configuration).getUserTotalBalance(id, chainId, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserTotalBalance(id, chainId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get net assets on multiple chains, including tokens and protocols
@@ -788,10 +826,11 @@ exports.UserApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUserTotalBalance_1(id, options) {
-            return exports.UserApiFp(configuration).getUserTotalBalance_1(id, options).then((request) => request(axios, basePath));
+            return (0, exports.UserApiFp)(configuration).getUserTotalBalance_1(id, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.UserApiFactory = UserApiFactory;
 /**
  * UserApi - object-oriented interface
  * @export
@@ -808,7 +847,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserComplexProtocolList(id, chainId, options) {
-        return exports.UserApiFp(this.configuration).getUserComplexProtocolList(id, chainId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserComplexProtocolList(id, chainId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get user nft list
@@ -819,7 +858,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserNftList(id, chainId, options) {
-        return exports.UserApiFp(this.configuration).getUserNftList(id, chainId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserNftList(id, chainId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the user's portfolio in the protocol
@@ -830,7 +869,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserProtocol(id, protocolId, options) {
-        return exports.UserApiFp(this.configuration).getUserProtocol(id, protocolId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserProtocol(id, protocolId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Stats the user's protocol assets on a chain
@@ -841,7 +880,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserSimpleProtocolList(id, chainId, options) {
-        return exports.UserApiFp(this.configuration).getUserSimpleProtocolList(id, chainId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserSimpleProtocolList(id, chainId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get user token balance
@@ -853,7 +892,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserToken(id, tokenId, chainId, options) {
-        return exports.UserApiFp(this.configuration).getUserToken(id, tokenId, chainId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserToken(id, tokenId, chainId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Show the user's risk exposure of approved token on a chain
@@ -864,7 +903,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserTokenAuthorizedList(id, chainId, options) {
-        return exports.UserApiFp(this.configuration).getUserTokenAuthorizedList(id, chainId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserTokenAuthorizedList(id, chainId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get user token balance
@@ -877,7 +916,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserTokenList(id, chainId, isAll, hasBalance, options) {
-        return exports.UserApiFp(this.configuration).getUserTokenList(id, chainId, isAll, hasBalance, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserTokenList(id, chainId, isAll, hasBalance, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Tokens By Filter
@@ -890,7 +929,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserTokenSearch(id, q, chainId, hasBalance, options) {
-        return exports.UserApiFp(this.configuration).getUserTokenSearch(id, q, chainId, hasBalance, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserTokenSearch(id, q, chainId, hasBalance, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the net assets of a chain
@@ -901,7 +940,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserTotalBalance(id, chainId, options) {
-        return exports.UserApiFp(this.configuration).getUserTotalBalance(id, chainId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserTotalBalance(id, chainId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get net assets on multiple chains, including tokens and protocols
@@ -911,7 +950,7 @@ class UserApi extends base_1.BaseAPI {
      * @memberof UserApi
      */
     getUserTotalBalance_1(id, options) {
-        return exports.UserApiFp(this.configuration).getUserTotalBalance_1(id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UserApiFp)(this.configuration).getUserTotalBalance_1(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.UserApi = UserApi;

@@ -16,7 +16,7 @@ import { RequestArgs, BaseAPI } from '../base';
  * UserApi - axios parameter creator
  * @export
  */
-export declare const UserApiAxiosParamCreator: (configuration?: Configuration | undefined) => {
+export declare const UserApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Get list of protocols with user portfolio details
      * @param {string} id User Address
@@ -24,7 +24,7 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserComplexProtocolList: (id: string, chainId?: string | undefined, options?: any) => Promise<RequestArgs>;
+    getUserComplexProtocolList: (id: string, chainId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get user nft list
      * @param {string} id Address
@@ -33,6 +33,13 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
      * @throws {RequiredError}
      */
     getUserNftList: (id: string, chainId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get user nft list on all supported chains
+     * @param {string} id Address
+     * @param {boolean} isall boolean
+     * @throws {RequiredError}
+     */
+    getUserAllNftList: (id: string, is_all: boolean) => Promise<RequestArgs>;
     /**
      * Get the user's portfolio in the protocol
      * @param {string} id User Address
@@ -48,7 +55,7 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserSimpleProtocolList: (id: string, chainId?: string | undefined, options?: any) => Promise<RequestArgs>;
+    getUserSimpleProtocolList: (id: string, chainId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get user token balance
      * @param {string} id Address
@@ -57,7 +64,7 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserToken: (id: string, tokenId: string, chainId?: string | undefined, options?: any) => Promise<RequestArgs>;
+    getUserToken: (id: string, tokenId: string, chainId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Show the user's risk exposure of approved token on a chain
      * @param {string} id User Address
@@ -75,7 +82,7 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenList: (id: string, chainId?: string | undefined, isAll?: boolean | undefined, hasBalance?: boolean | undefined, options?: any) => Promise<RequestArgs>;
+    getUserTokenList: (id: string, chainId?: string, isAll?: boolean, hasBalance?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get Tokens By Filter
      * @param {string} id User Address
@@ -85,7 +92,7 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenSearch: (id: string, q: string, chainId?: string | undefined, hasBalance?: boolean | undefined, options?: any) => Promise<RequestArgs>;
+    getUserTokenSearch: (id: string, q: string, chainId?: string, hasBalance?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the net assets of a chain
      * @param {string} id User Address
@@ -106,7 +113,7 @@ export declare const UserApiAxiosParamCreator: (configuration?: Configuration | 
  * UserApi - functional programming interface
  * @export
  */
-export declare const UserApiFp: (configuration?: Configuration | undefined) => {
+export declare const UserApiFp: (configuration?: Configuration) => {
     /**
      * Get list of protocols with user portfolio details
      * @param {string} id User Address
@@ -114,7 +121,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserComplexProtocolList(id: string, chainId?: string | undefined, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserComplexProtocolList(id: string, chainId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get user nft list
      * @param {string} id Address
@@ -122,7 +129,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserNftList(id: string, chainId: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserNftList(id: string, chainId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get the user's portfolio in the protocol
      * @param {string} id User Address
@@ -130,7 +137,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserProtocol(id: string, protocolId: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserProtocol(id: string, protocolId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Stats the user's protocol assets on a chain
      * @param {string} id User Address
@@ -138,7 +145,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserSimpleProtocolList(id: string, chainId?: string | undefined, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserSimpleProtocolList(id: string, chainId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get user token balance
      * @param {string} id Address
@@ -147,7 +154,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserToken(id: string, tokenId: string, chainId?: string | undefined, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserToken(id: string, tokenId: string, chainId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Show the user's risk exposure of approved token on a chain
      * @param {string} id User Address
@@ -155,7 +162,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenAuthorizedList(id: string, chainId: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserTokenAuthorizedList(id: string, chainId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get user token balance
      * @param {string} id Address
@@ -165,7 +172,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenList(id: string, chainId?: string | undefined, isAll?: boolean | undefined, hasBalance?: boolean | undefined, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserTokenList(id: string, chainId?: string, isAll?: boolean, hasBalance?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get Tokens By Filter
      * @param {string} id User Address
@@ -175,7 +182,7 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenSearch(id: string, q: string, chainId?: string | undefined, hasBalance?: boolean | undefined, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserTokenSearch(id: string, q: string, chainId?: string, hasBalance?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get the net assets of a chain
      * @param {string} id User Address
@@ -183,20 +190,20 @@ export declare const UserApiFp: (configuration?: Configuration | undefined) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTotalBalance(id: string, chainId: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserTotalBalance(id: string, chainId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get net assets on multiple chains, including tokens and protocols
      * @param {string} id User Address
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTotalBalance_1(id: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUserTotalBalance_1(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * UserApi - factory interface
  * @export
  */
-export declare const UserApiFactory: (configuration?: Configuration | undefined, basePath?: string | undefined, axios?: AxiosInstance | undefined) => {
+export declare const UserApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Get list of protocols with user portfolio details
      * @param {string} id User Address
@@ -204,7 +211,7 @@ export declare const UserApiFactory: (configuration?: Configuration | undefined,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserComplexProtocolList(id: string, chainId?: string | undefined, options?: any): AxiosPromise<void>;
+    getUserComplexProtocolList(id: string, chainId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get user nft list
      * @param {string} id Address
@@ -228,7 +235,7 @@ export declare const UserApiFactory: (configuration?: Configuration | undefined,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserSimpleProtocolList(id: string, chainId?: string | undefined, options?: any): AxiosPromise<void>;
+    getUserSimpleProtocolList(id: string, chainId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get user token balance
      * @param {string} id Address
@@ -237,7 +244,7 @@ export declare const UserApiFactory: (configuration?: Configuration | undefined,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserToken(id: string, tokenId: string, chainId?: string | undefined, options?: any): AxiosPromise<void>;
+    getUserToken(id: string, tokenId: string, chainId?: string, options?: any): AxiosPromise<void>;
     /**
      * Show the user's risk exposure of approved token on a chain
      * @param {string} id User Address
@@ -255,7 +262,7 @@ export declare const UserApiFactory: (configuration?: Configuration | undefined,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenList(id: string, chainId?: string | undefined, isAll?: boolean | undefined, hasBalance?: boolean | undefined, options?: any): AxiosPromise<void>;
+    getUserTokenList(id: string, chainId?: string, isAll?: boolean, hasBalance?: boolean, options?: any): AxiosPromise<void>;
     /**
      * Get Tokens By Filter
      * @param {string} id User Address
@@ -265,7 +272,7 @@ export declare const UserApiFactory: (configuration?: Configuration | undefined,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserTokenSearch(id: string, q: string, chainId?: string | undefined, hasBalance?: boolean | undefined, options?: any): AxiosPromise<void>;
+    getUserTokenSearch(id: string, q: string, chainId?: string, hasBalance?: boolean, options?: any): AxiosPromise<void>;
     /**
      * Get the net assets of a chain
      * @param {string} id User Address
@@ -297,7 +304,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserComplexProtocolList(id: string, chainId?: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserComplexProtocolList(id: string, chainId?: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get user nft list
      * @param {string} id Address
@@ -306,7 +313,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserNftList(id: string, chainId: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserNftList(id: string, chainId: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get the user's portfolio in the protocol
      * @param {string} id User Address
@@ -315,7 +322,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserProtocol(id: string, protocolId: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserProtocol(id: string, protocolId: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Stats the user's protocol assets on a chain
      * @param {string} id User Address
@@ -324,7 +331,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserSimpleProtocolList(id: string, chainId?: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserSimpleProtocolList(id: string, chainId?: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get user token balance
      * @param {string} id Address
@@ -334,7 +341,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserToken(id: string, tokenId: string, chainId?: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserToken(id: string, tokenId: string, chainId?: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Show the user's risk exposure of approved token on a chain
      * @param {string} id User Address
@@ -343,7 +350,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserTokenAuthorizedList(id: string, chainId: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserTokenAuthorizedList(id: string, chainId: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get user token balance
      * @param {string} id Address
@@ -354,7 +361,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserTokenList(id: string, chainId?: string, isAll?: boolean, hasBalance?: boolean, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserTokenList(id: string, chainId?: string, isAll?: boolean, hasBalance?: boolean, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get Tokens By Filter
      * @param {string} id User Address
@@ -365,7 +372,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserTokenSearch(id: string, q: string, chainId?: string, hasBalance?: boolean, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserTokenSearch(id: string, q: string, chainId?: string, hasBalance?: boolean, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get the net assets of a chain
      * @param {string} id User Address
@@ -374,7 +381,7 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserTotalBalance(id: string, chainId: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserTotalBalance(id: string, chainId: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * Get net assets on multiple chains, including tokens and protocols
      * @param {string} id User Address
@@ -382,5 +389,5 @@ export declare class UserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserApi
      */
-    getUserTotalBalance_1(id: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUserTotalBalance_1(id: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
 }

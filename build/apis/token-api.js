@@ -34,7 +34,7 @@ const base_1 = require("../base");
  * TokenApi - axios parameter creator
  * @export
  */
-exports.TokenApiAxiosParamCreator = function (configuration) {
+const TokenApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Bulk token fetching by address
@@ -132,11 +132,12 @@ exports.TokenApiAxiosParamCreator = function (configuration) {
         }),
     };
 };
+exports.TokenApiAxiosParamCreator = TokenApiAxiosParamCreator;
 /**
  * TokenApi - functional programming interface
  * @export
  */
-exports.TokenApiFp = function (configuration) {
+const TokenApiFp = function (configuration) {
     return {
         /**
          * Bulk token fetching by address
@@ -147,7 +148,7 @@ exports.TokenApiFp = function (configuration) {
          */
         getTokenListByIdsR(chainId, ids, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TokenApiAxiosParamCreator(configuration).getTokenListByIdsR(chainId, ids, options);
+                const localVarAxiosArgs = yield (0, exports.TokenApiAxiosParamCreator)(configuration).getTokenListByIdsR(chainId, ids, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -163,7 +164,7 @@ exports.TokenApiFp = function (configuration) {
          */
         getTokenR(chainId, id, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TokenApiAxiosParamCreator(configuration).getTokenR(chainId, id, options);
+                const localVarAxiosArgs = yield (0, exports.TokenApiAxiosParamCreator)(configuration).getTokenR(chainId, id, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -172,11 +173,12 @@ exports.TokenApiFp = function (configuration) {
         },
     };
 };
+exports.TokenApiFp = TokenApiFp;
 /**
  * TokenApi - factory interface
  * @export
  */
-exports.TokenApiFactory = function (configuration, basePath, axios) {
+const TokenApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Bulk token fetching by address
@@ -186,7 +188,7 @@ exports.TokenApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getTokenListByIdsR(chainId, ids, options) {
-            return exports.TokenApiFp(configuration).getTokenListByIdsR(chainId, ids, options).then((request) => request(axios, basePath));
+            return (0, exports.TokenApiFp)(configuration).getTokenListByIdsR(chainId, ids, options).then((request) => request(axios, basePath));
         },
         /**
          * Get token by address
@@ -196,10 +198,11 @@ exports.TokenApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getTokenR(chainId, id, options) {
-            return exports.TokenApiFp(configuration).getTokenR(chainId, id, options).then((request) => request(axios, basePath));
+            return (0, exports.TokenApiFp)(configuration).getTokenR(chainId, id, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.TokenApiFactory = TokenApiFactory;
 /**
  * TokenApi - object-oriented interface
  * @export
@@ -216,7 +219,7 @@ class TokenApi extends base_1.BaseAPI {
      * @memberof TokenApi
      */
     getTokenListByIdsR(chainId, ids, options) {
-        return exports.TokenApiFp(this.configuration).getTokenListByIdsR(chainId, ids, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.TokenApiFp)(this.configuration).getTokenListByIdsR(chainId, ids, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get token by address
@@ -227,7 +230,7 @@ class TokenApi extends base_1.BaseAPI {
      * @memberof TokenApi
      */
     getTokenR(chainId, id, options) {
-        return exports.TokenApiFp(this.configuration).getTokenR(chainId, id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.TokenApiFp)(this.configuration).getTokenR(chainId, id, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.TokenApi = TokenApi;

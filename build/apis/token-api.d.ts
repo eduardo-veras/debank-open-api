@@ -17,7 +17,7 @@ import { Token } from '../models';
  * TokenApi - axios parameter creator
  * @export
  */
-export declare const TokenApiAxiosParamCreator: (configuration?: Configuration | undefined) => {
+export declare const TokenApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Bulk token fetching by address
      * @param {string} chainId ChainID
@@ -39,7 +39,7 @@ export declare const TokenApiAxiosParamCreator: (configuration?: Configuration |
  * TokenApi - functional programming interface
  * @export
  */
-export declare const TokenApiFp: (configuration?: Configuration | undefined) => {
+export declare const TokenApiFp: (configuration?: Configuration) => {
     /**
      * Bulk token fetching by address
      * @param {string} chainId ChainID
@@ -47,7 +47,7 @@ export declare const TokenApiFp: (configuration?: Configuration | undefined) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTokenListByIdsR(chainId: string, ids: Array<string>, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<Array<Token>>>;
+    getTokenListByIdsR(chainId: string, ids: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Token>>>;
     /**
      * Get token by address
      * @param {string} chainId ChainID
@@ -55,13 +55,13 @@ export declare const TokenApiFp: (configuration?: Configuration | undefined) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTokenR(chainId: string, id: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<Token>>;
+    getTokenR(chainId: string, id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Token>>;
 };
 /**
  * TokenApi - factory interface
  * @export
  */
-export declare const TokenApiFactory: (configuration?: Configuration | undefined, basePath?: string | undefined, axios?: AxiosInstance | undefined) => {
+export declare const TokenApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Bulk token fetching by address
      * @param {string} chainId ChainID
@@ -94,7 +94,7 @@ export declare class TokenApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TokenApi
      */
-    getTokenListByIdsR(chainId: string, ids: Array<string>, options?: any): Promise<import("axios").AxiosResponse<Token[]>>;
+    getTokenListByIdsR(chainId: string, ids: Array<string>, options?: any): Promise<import("axios").AxiosResponse<Token[], any>>;
     /**
      * Get token by address
      * @param {string} chainId ChainID
@@ -103,5 +103,5 @@ export declare class TokenApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TokenApi
      */
-    getTokenR(chainId: string, id: string, options?: any): Promise<import("axios").AxiosResponse<Token>>;
+    getTokenR(chainId: string, id: string, options?: any): Promise<import("axios").AxiosResponse<Token, any>>;
 }

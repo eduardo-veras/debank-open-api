@@ -17,7 +17,7 @@ import { Chain } from '../models';
  * ChainApi - axios parameter creator
  * @export
  */
-export declare const ChainApiAxiosParamCreator: (configuration?: Configuration | undefined) => {
+export declare const ChainApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Get supported chain list
      * @param {*} [options] Override http request option.
@@ -36,26 +36,26 @@ export declare const ChainApiAxiosParamCreator: (configuration?: Configuration |
  * ChainApi - functional programming interface
  * @export
  */
-export declare const ChainApiFp: (configuration?: Configuration | undefined) => {
+export declare const ChainApiFp: (configuration?: Configuration) => {
     /**
      * Get supported chain list
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getChainList(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<Array<Chain>>>;
+    getChainList(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Chain>>>;
     /**
      * Get chain info by id
      * @param {string} id ChainID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getChainR(id: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<Chain>>;
+    getChainR(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Chain>>;
 };
 /**
  * ChainApi - factory interface
  * @export
  */
-export declare const ChainApiFactory: (configuration?: Configuration | undefined, basePath?: string | undefined, axios?: AxiosInstance | undefined) => {
+export declare const ChainApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Get supported chain list
      * @param {*} [options] Override http request option.
@@ -83,7 +83,7 @@ export declare class ChainApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ChainApi
      */
-    getChainList(options?: any): Promise<import("axios").AxiosResponse<Chain[]>>;
+    getChainList(options?: any): Promise<import("axios").AxiosResponse<Chain[], any>>;
     /**
      * Get chain info by id
      * @param {string} id ChainID
@@ -91,5 +91,5 @@ export declare class ChainApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ChainApi
      */
-    getChainR(id: string, options?: any): Promise<import("axios").AxiosResponse<Chain>>;
+    getChainR(id: string, options?: any): Promise<import("axios").AxiosResponse<Chain, any>>;
 }

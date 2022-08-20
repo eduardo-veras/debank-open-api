@@ -17,7 +17,7 @@ import { Protocol } from '../models';
  * ProtocolApi - axios parameter creator
  * @export
  */
-export declare const ProtocolApiAxiosParamCreator: (configuration?: Configuration | undefined) => {
+export declare const ProtocolApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
      * @param {*} [options] Override http request option.
@@ -43,33 +43,33 @@ export declare const ProtocolApiAxiosParamCreator: (configuration?: Configuratio
  * ProtocolApi - functional programming interface
  * @export
  */
-export declare const ProtocolApiFp: (configuration?: Configuration | undefined) => {
+export declare const ProtocolApiFp: (configuration?: Configuration) => {
     /**
      *
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProtocolListR(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<Array<Protocol>>>;
-    /**
-     *
-     * @param {string} id protocol id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getProtocolR(id: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<Protocol>>;
+    getProtocolListR(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Protocol>>>;
     /**
      *
      * @param {string} id protocol id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTvl(id: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getProtocolR(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Protocol>>;
+    /**
+     *
+     * @param {string} id protocol id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTvl(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * ProtocolApi - factory interface
  * @export
  */
-export declare const ProtocolApiFactory: (configuration?: Configuration | undefined, basePath?: string | undefined, axios?: AxiosInstance | undefined) => {
+export declare const ProtocolApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
      * @param {*} [options] Override http request option.
@@ -104,7 +104,7 @@ export declare class ProtocolApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProtocolApi
      */
-    getProtocolListR(options?: any): Promise<import("axios").AxiosResponse<Protocol[]>>;
+    getProtocolListR(options?: any): Promise<import("axios").AxiosResponse<Protocol[], any>>;
     /**
      *
      * @param {string} id protocol id
@@ -112,7 +112,7 @@ export declare class ProtocolApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProtocolApi
      */
-    getProtocolR(id: string, options?: any): Promise<import("axios").AxiosResponse<Protocol>>;
+    getProtocolR(id: string, options?: any): Promise<import("axios").AxiosResponse<Protocol, any>>;
     /**
      *
      * @param {string} id protocol id
@@ -120,5 +120,5 @@ export declare class ProtocolApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProtocolApi
      */
-    getTvl(id: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getTvl(id: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
 }

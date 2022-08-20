@@ -16,7 +16,7 @@ import { RequestArgs, BaseAPI } from '../base';
  * WalletApi - axios parameter creator
  * @export
  */
-export declare const WalletApiAxiosParamCreator: (configuration?: Configuration | undefined) => {
+export declare const WalletApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * check origin
      * @param {string} userAddr User Address
@@ -56,7 +56,7 @@ export declare const WalletApiAxiosParamCreator: (configuration?: Configuration 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGasMarket: (chainId: string, customPrice?: string | undefined, options?: any) => Promise<RequestArgs>;
+    getGasMarket: (chainId: string, customPrice?: string, options?: any) => Promise<RequestArgs>;
     /**
      * user pending tx count
      * @param {string} userAddr User Address
@@ -125,7 +125,7 @@ export declare const WalletApiAxiosParamCreator: (configuration?: Configuration 
  * WalletApi - functional programming interface
  * @export
  */
-export declare const WalletApiFp: (configuration?: Configuration | undefined) => {
+export declare const WalletApiFp: (configuration?: Configuration) => {
     /**
      * check origin
      * @param {string} userAddr User Address
@@ -133,14 +133,14 @@ export declare const WalletApiFp: (configuration?: Configuration | undefined) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCheckOrigin(userAddr: string, origin: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getCheckOrigin(userAddr: string, origin: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * ens
      * @param {string} text text
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEns(text: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getEns(text: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * explain origin
      * @param {string} userAddr User Address
@@ -148,7 +148,7 @@ export declare const WalletApiFp: (configuration?: Configuration | undefined) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getExplainOrigin(userAddr: string, origin: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getExplainOrigin(userAddr: string, origin: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * get tx
      * @param {string} chainId ChainId
@@ -157,7 +157,7 @@ export declare const WalletApiFp: (configuration?: Configuration | undefined) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getExplainTx(chainId: string, txId: string, gasPrice: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getExplainTx(chainId: string, txId: string, gasPrice: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * gas market
      * @param {string} chainId ChainId
@@ -165,14 +165,14 @@ export declare const WalletApiFp: (configuration?: Configuration | undefined) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGasMarket(chainId: string, customPrice?: string | undefined, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getGasMarket(chainId: string, customPrice?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * user pending tx count
      * @param {string} userAddr User Address
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPendingTxCount(userAddr: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getPendingTxCount(userAddr: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * recommend chains
      * @param {string} userAddr User Address
@@ -180,61 +180,61 @@ export declare const WalletApiFp: (configuration?: Configuration | undefined) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRecommendChains(userAddr: string, origin: string, options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getRecommendChains(userAddr: string, origin: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * wallet support chain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSupportChains(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getSupportChains(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * wallet api config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUrlConfig(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    getUrlConfig(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * check text
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postCheckText(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    postCheckText(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * check tx
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postCheckTx(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    postCheckTx(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * eth rpc
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postEthCall(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    postEthCall(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * explain text
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postExplainText(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    postExplainText(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * explain tx
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postExplainTx(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    postExplainTx(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * push tx
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postPushTx(options?: any): Promise<(axios?: AxiosInstance | undefined, basePath?: string | undefined) => AxiosPromise<void>>;
+    postPushTx(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * WalletApi - factory interface
  * @export
  */
-export declare const WalletApiFactory: (configuration?: Configuration | undefined, basePath?: string | undefined, axios?: AxiosInstance | undefined) => {
+export declare const WalletApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * check origin
      * @param {string} userAddr User Address
@@ -274,7 +274,7 @@ export declare const WalletApiFactory: (configuration?: Configuration | undefine
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGasMarket(chainId: string, customPrice?: string | undefined, options?: any): AxiosPromise<void>;
+    getGasMarket(chainId: string, customPrice?: string, options?: any): AxiosPromise<void>;
     /**
      * user pending tx count
      * @param {string} userAddr User Address
@@ -354,7 +354,7 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getCheckOrigin(userAddr: string, origin: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getCheckOrigin(userAddr: string, origin: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * ens
      * @param {string} text text
@@ -362,7 +362,7 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getEns(text: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getEns(text: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * explain origin
      * @param {string} userAddr User Address
@@ -371,7 +371,7 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getExplainOrigin(userAddr: string, origin: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getExplainOrigin(userAddr: string, origin: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * get tx
      * @param {string} chainId ChainId
@@ -381,7 +381,7 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getExplainTx(chainId: string, txId: string, gasPrice: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getExplainTx(chainId: string, txId: string, gasPrice: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * gas market
      * @param {string} chainId ChainId
@@ -390,7 +390,7 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getGasMarket(chainId: string, customPrice?: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getGasMarket(chainId: string, customPrice?: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * user pending tx count
      * @param {string} userAddr User Address
@@ -398,7 +398,7 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getPendingTxCount(userAddr: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getPendingTxCount(userAddr: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * recommend chains
      * @param {string} userAddr User Address
@@ -407,61 +407,61 @@ export declare class WalletApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getRecommendChains(userAddr: string, origin: string, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getRecommendChains(userAddr: string, origin: string, options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * wallet support chain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getSupportChains(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getSupportChains(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * wallet api config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    getUrlConfig(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    getUrlConfig(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * check text
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    postCheckText(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    postCheckText(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * check tx
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    postCheckTx(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    postCheckTx(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * eth rpc
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    postEthCall(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    postEthCall(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * explain text
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    postExplainText(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    postExplainText(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * explain tx
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    postExplainTx(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    postExplainTx(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
     /**
      * push tx
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WalletApi
      */
-    postPushTx(options?: any): Promise<import("axios").AxiosResponse<void>>;
+    postPushTx(options?: any): Promise<import("axios").AxiosResponse<void, any>>;
 }

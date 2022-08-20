@@ -34,7 +34,7 @@ const base_1 = require("../base");
  * WalletApi - axios parameter creator
  * @export
  */
-exports.WalletApiAxiosParamCreator = function (configuration) {
+const WalletApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * check origin
@@ -603,11 +603,12 @@ exports.WalletApiAxiosParamCreator = function (configuration) {
         }),
     };
 };
+exports.WalletApiAxiosParamCreator = WalletApiAxiosParamCreator;
 /**
  * WalletApi - functional programming interface
  * @export
  */
-exports.WalletApiFp = function (configuration) {
+const WalletApiFp = function (configuration) {
     return {
         /**
          * check origin
@@ -618,7 +619,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getCheckOrigin(userAddr, origin, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getCheckOrigin(userAddr, origin, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getCheckOrigin(userAddr, origin, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -633,7 +634,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getEns(text, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getEns(text, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getEns(text, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -649,7 +650,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getExplainOrigin(userAddr, origin, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getExplainOrigin(userAddr, origin, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getExplainOrigin(userAddr, origin, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -666,7 +667,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getExplainTx(chainId, txId, gasPrice, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getExplainTx(chainId, txId, gasPrice, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getExplainTx(chainId, txId, gasPrice, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -682,7 +683,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getGasMarket(chainId, customPrice, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getGasMarket(chainId, customPrice, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getGasMarket(chainId, customPrice, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -697,7 +698,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getPendingTxCount(userAddr, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getPendingTxCount(userAddr, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getPendingTxCount(userAddr, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -713,7 +714,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getRecommendChains(userAddr, origin, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getRecommendChains(userAddr, origin, options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getRecommendChains(userAddr, origin, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -727,7 +728,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getSupportChains(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getSupportChains(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getSupportChains(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -741,7 +742,7 @@ exports.WalletApiFp = function (configuration) {
          */
         getUrlConfig(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).getUrlConfig(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).getUrlConfig(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -755,7 +756,7 @@ exports.WalletApiFp = function (configuration) {
          */
         postCheckText(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).postCheckText(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).postCheckText(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -769,7 +770,7 @@ exports.WalletApiFp = function (configuration) {
          */
         postCheckTx(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).postCheckTx(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).postCheckTx(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -783,7 +784,7 @@ exports.WalletApiFp = function (configuration) {
          */
         postEthCall(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).postEthCall(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).postEthCall(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -797,7 +798,7 @@ exports.WalletApiFp = function (configuration) {
          */
         postExplainText(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).postExplainText(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).postExplainText(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -811,7 +812,7 @@ exports.WalletApiFp = function (configuration) {
          */
         postExplainTx(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).postExplainTx(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).postExplainTx(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -825,7 +826,7 @@ exports.WalletApiFp = function (configuration) {
          */
         postPushTx(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WalletApiAxiosParamCreator(configuration).postPushTx(options);
+                const localVarAxiosArgs = yield (0, exports.WalletApiAxiosParamCreator)(configuration).postPushTx(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -834,11 +835,12 @@ exports.WalletApiFp = function (configuration) {
         },
     };
 };
+exports.WalletApiFp = WalletApiFp;
 /**
  * WalletApi - factory interface
  * @export
  */
-exports.WalletApiFactory = function (configuration, basePath, axios) {
+const WalletApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * check origin
@@ -848,7 +850,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getCheckOrigin(userAddr, origin, options) {
-            return exports.WalletApiFp(configuration).getCheckOrigin(userAddr, origin, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getCheckOrigin(userAddr, origin, options).then((request) => request(axios, basePath));
         },
         /**
          * ens
@@ -857,7 +859,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getEns(text, options) {
-            return exports.WalletApiFp(configuration).getEns(text, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getEns(text, options).then((request) => request(axios, basePath));
         },
         /**
          * explain origin
@@ -867,7 +869,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getExplainOrigin(userAddr, origin, options) {
-            return exports.WalletApiFp(configuration).getExplainOrigin(userAddr, origin, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getExplainOrigin(userAddr, origin, options).then((request) => request(axios, basePath));
         },
         /**
          * get tx
@@ -878,7 +880,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getExplainTx(chainId, txId, gasPrice, options) {
-            return exports.WalletApiFp(configuration).getExplainTx(chainId, txId, gasPrice, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getExplainTx(chainId, txId, gasPrice, options).then((request) => request(axios, basePath));
         },
         /**
          * gas market
@@ -888,7 +890,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getGasMarket(chainId, customPrice, options) {
-            return exports.WalletApiFp(configuration).getGasMarket(chainId, customPrice, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getGasMarket(chainId, customPrice, options).then((request) => request(axios, basePath));
         },
         /**
          * user pending tx count
@@ -897,7 +899,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getPendingTxCount(userAddr, options) {
-            return exports.WalletApiFp(configuration).getPendingTxCount(userAddr, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getPendingTxCount(userAddr, options).then((request) => request(axios, basePath));
         },
         /**
          * recommend chains
@@ -907,7 +909,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getRecommendChains(userAddr, origin, options) {
-            return exports.WalletApiFp(configuration).getRecommendChains(userAddr, origin, options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getRecommendChains(userAddr, origin, options).then((request) => request(axios, basePath));
         },
         /**
          * wallet support chain
@@ -915,7 +917,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getSupportChains(options) {
-            return exports.WalletApiFp(configuration).getSupportChains(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getSupportChains(options).then((request) => request(axios, basePath));
         },
         /**
          * wallet api config
@@ -923,7 +925,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getUrlConfig(options) {
-            return exports.WalletApiFp(configuration).getUrlConfig(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).getUrlConfig(options).then((request) => request(axios, basePath));
         },
         /**
          * check text
@@ -931,7 +933,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         postCheckText(options) {
-            return exports.WalletApiFp(configuration).postCheckText(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).postCheckText(options).then((request) => request(axios, basePath));
         },
         /**
          * check tx
@@ -939,7 +941,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         postCheckTx(options) {
-            return exports.WalletApiFp(configuration).postCheckTx(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).postCheckTx(options).then((request) => request(axios, basePath));
         },
         /**
          * eth rpc
@@ -947,7 +949,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         postEthCall(options) {
-            return exports.WalletApiFp(configuration).postEthCall(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).postEthCall(options).then((request) => request(axios, basePath));
         },
         /**
          * explain text
@@ -955,7 +957,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         postExplainText(options) {
-            return exports.WalletApiFp(configuration).postExplainText(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).postExplainText(options).then((request) => request(axios, basePath));
         },
         /**
          * explain tx
@@ -963,7 +965,7 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         postExplainTx(options) {
-            return exports.WalletApiFp(configuration).postExplainTx(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).postExplainTx(options).then((request) => request(axios, basePath));
         },
         /**
          * push tx
@@ -971,10 +973,11 @@ exports.WalletApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         postPushTx(options) {
-            return exports.WalletApiFp(configuration).postPushTx(options).then((request) => request(axios, basePath));
+            return (0, exports.WalletApiFp)(configuration).postPushTx(options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.WalletApiFactory = WalletApiFactory;
 /**
  * WalletApi - object-oriented interface
  * @export
@@ -991,7 +994,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getCheckOrigin(userAddr, origin, options) {
-        return exports.WalletApiFp(this.configuration).getCheckOrigin(userAddr, origin, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getCheckOrigin(userAddr, origin, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * ens
@@ -1001,7 +1004,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getEns(text, options) {
-        return exports.WalletApiFp(this.configuration).getEns(text, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getEns(text, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * explain origin
@@ -1012,7 +1015,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getExplainOrigin(userAddr, origin, options) {
-        return exports.WalletApiFp(this.configuration).getExplainOrigin(userAddr, origin, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getExplainOrigin(userAddr, origin, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * get tx
@@ -1024,7 +1027,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getExplainTx(chainId, txId, gasPrice, options) {
-        return exports.WalletApiFp(this.configuration).getExplainTx(chainId, txId, gasPrice, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getExplainTx(chainId, txId, gasPrice, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * gas market
@@ -1035,7 +1038,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getGasMarket(chainId, customPrice, options) {
-        return exports.WalletApiFp(this.configuration).getGasMarket(chainId, customPrice, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getGasMarket(chainId, customPrice, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * user pending tx count
@@ -1045,7 +1048,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getPendingTxCount(userAddr, options) {
-        return exports.WalletApiFp(this.configuration).getPendingTxCount(userAddr, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getPendingTxCount(userAddr, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * recommend chains
@@ -1056,7 +1059,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getRecommendChains(userAddr, origin, options) {
-        return exports.WalletApiFp(this.configuration).getRecommendChains(userAddr, origin, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getRecommendChains(userAddr, origin, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * wallet support chain
@@ -1065,7 +1068,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getSupportChains(options) {
-        return exports.WalletApiFp(this.configuration).getSupportChains(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getSupportChains(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * wallet api config
@@ -1074,7 +1077,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     getUrlConfig(options) {
-        return exports.WalletApiFp(this.configuration).getUrlConfig(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).getUrlConfig(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * check text
@@ -1083,7 +1086,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     postCheckText(options) {
-        return exports.WalletApiFp(this.configuration).postCheckText(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).postCheckText(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * check tx
@@ -1092,7 +1095,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     postCheckTx(options) {
-        return exports.WalletApiFp(this.configuration).postCheckTx(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).postCheckTx(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * eth rpc
@@ -1101,7 +1104,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     postEthCall(options) {
-        return exports.WalletApiFp(this.configuration).postEthCall(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).postEthCall(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * explain text
@@ -1110,7 +1113,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     postExplainText(options) {
-        return exports.WalletApiFp(this.configuration).postExplainText(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).postExplainText(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * explain tx
@@ -1119,7 +1122,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     postExplainTx(options) {
-        return exports.WalletApiFp(this.configuration).postExplainTx(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).postExplainTx(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * push tx
@@ -1128,7 +1131,7 @@ class WalletApi extends base_1.BaseAPI {
      * @memberof WalletApi
      */
     postPushTx(options) {
-        return exports.WalletApiFp(this.configuration).postPushTx(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.WalletApiFp)(this.configuration).postPushTx(options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.WalletApi = WalletApi;
